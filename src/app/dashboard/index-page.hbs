@@ -1,0 +1,307 @@
+---
+layout: app/app-layout
+pagename: dashboard
+items:
+  - title: 12 Myths Uncovered About IT & Software
+    img: https://s3.amazonaws.com/uifaces/faces/twitter/brad_frost/128.jpg
+    author: Meadow Katheryne
+    category: Software
+    date: 21 SEP 10:45
+    sales: 4958
+  - title: 50% of things doesn't really belongs to you
+    img: https://s3.amazonaws.com/uifaces/faces/twitter/_everaldo/128.jpg
+    author: Alexander Sargssyan
+    category: Software
+    date: 21 SEP 10:45
+    sales: 192
+  - title: Vestibulum tincidunt amet laoreet mauris sit sem aliquam cras maecenas vel aliquam.
+    img: https://s3.amazonaws.com/uifaces/faces/twitter/eduardo_olv/128.jpg
+    author: Angela Blaine
+    category: Software
+    date: 21 SEP 10:45
+    sales: 2143
+  - title: 10 tips of Object Oriented Design
+    img: https://s3.amazonaws.com/uifaces/faces/twitter/why_this/128.jpg
+    author: Marcus Ulupus
+    category: Software
+    date: 21 SEP 10:45
+    sales: 124
+  - title: Sometimes friend tells it is cold
+    img: https://s3.amazonaws.com/uifaces/faces/twitter/w7download/128.jpg
+    author: Grdon Mrdon
+    category: Software
+    date: 21 SEP 10:45
+    sales: 10214
+  - title: New ways of conceptual thinking
+    img: https://s3.amazonaws.com/uifaces/faces/twitter/pankogut/128.jpg
+    author: Tiko Charbaxo
+    category: Software
+    date: 21 SEP 10:45
+    sales: 3217
+tasks:
+  - title: Meeting with embassador
+    done: true
+  - title: Confession
+    done: true
+  - title: Time to start building an ark
+    done: false
+  - title: Beer time with dudes
+    done: false
+  - title: Meeting new girls
+    done: true
+  - title: Remember damned home address
+    done: false
+  - title: Get home before you got sleep
+    done: false
+  - title: Meeting with embassador
+    done: true
+  - title: Confession
+    done: true
+  - title: Time to start building an ark
+    done: false
+  - title: Beer time with dudes
+    done: false
+  - title: Meeting new girls
+    done: true
+  - title: Remember damned home address
+    done: false
+---
+<section class="section">
+    <div class="row sameheight-container">
+        <div class="col col-12 col-sm-12 col-md-6 col-xl-5 stats-col">
+            {{> app/dashboard/stats/stats}}
+        </div>
+        <div class="col col-12 col-sm-12 col-md-6 col-xl-7 history-col">
+            {{> app/dashboard/history/history}}
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="row sameheight-container">
+
+        <div class="col-xl-8">
+            {{> app/dashboard/items/items}}
+        </div>
+
+        <div class="col-xl-4">
+             {{> app/dashboard/sales-breakdown/sales-breakdown}}
+        </div>
+    </div>
+</section>
+<section class="section map-tasks">
+    <div class="row sameheight-container">
+        <div class="col-md-8">
+            {{> app/dashboard/sales-by-countries/sales-by-countries}}
+        </div>
+
+        <div class="col-md-4">
+            {{> app/dashboard/tasks/tasks}}
+        </div>
+    </div>
+</section>
+
+<section class="section map-tasks">
+    <div class="row sameheight-container">
+        <div class="col-md-8">
+<div class="container">
+
+        <h1>Consumos del Periodo</h1>
+        <span id="countIns"></span>
+
+        <h2 id="instructor"></h2>
+        <span id="insTrans"></span>
+        <hr>
+
+        <img id="loader" src="https://loading.io/spinners/double-ring/lg.double-ring-spinner.gif">
+
+        <label for="fName" class="col-lg-2 control-label">First Name</label>
+        <input id="fName" type="text">
+
+        <label for="lName" class="col-lg-2 control-label">Last Name</label>
+        <input id="lName" type="text">
+
+        <label for="age" class="col-lg-2 control-label">Metrics</label>
+        <input id="age" type="text">
+
+        <button id="button">Update Metrics</button>
+
+
+    </div>
+
+  </div>
+</section>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+
+<script>
+if (typeof web3 !== 'undefined') {
+      web3 = new Web3(web3.currentProvider);
+  } else {
+      // set the provider you want from Web3.providers
+      web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
+  }
+
+
+  // Previous if/else statement removed for brevity
+
+  web3.eth.defaultAccount = web3.eth.accounts[0];
+
+   var firstSmartContract = web3.eth.contract([
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"name": "fName",
+				"type": "bytes16"
+			},
+			{
+				"indexed": false,
+				"name": "lName",
+				"type": "bytes16"
+			},
+			{
+				"indexed": false,
+				"name": "age",
+				"type": "uint256"
+			}
+		],
+		"name": "instructorInfo",
+		"type": "event"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_address",
+				"type": "address"
+			},
+			{
+				"name": "_age",
+				"type": "uint256"
+			},
+			{
+				"name": "_fName",
+				"type": "bytes16"
+			},
+			{
+				"name": "_lName",
+				"type": "bytes16"
+			}
+		],
+		"name": "setInstructor",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "countInstructors",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "ins",
+				"type": "address"
+			}
+		],
+		"name": "getInstructor",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"name": "",
+				"type": "bytes16"
+			},
+			{
+				"name": "",
+				"type": "bytes16"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "getInstructors",
+		"outputs": [
+			{
+				"name": "",
+				"type": "address[]"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "instructorAccts",
+		"outputs": [
+			{
+				"name": "",
+				"type": "address"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	}
+]);
+
+var FirstContract = firstSmartContract.at('0xcd43dc02151227f9a1e1ced4278887233ce79061');
+console.log(FirstContract);
+
+var instructorEvent = FirstContract.instructorInfo({}, 'latest');
+
+instructorEvent.watch(function(error, result){
+  if(!error)
+  {
+    if(result.blockHash != $("#insTrans").html())
+      $("#loader").hide();
+      $("#insTrans").html('Transacction hash: ' + result.blockHash);
+    $("#instructor").html(web3.toAscii(result.args.fName) + ' ' + web3.toAscii(result.args.lName) + ' (' + result.args.age + ' Kwats)');
+  } else {
+      $("#loader").hide();
+      console.log(error);
+  }
+});
+
+FirstContract.countInstructors((err, res) => {
+       if (res)
+        $("#countIns").html(res.c + ' Instructors');
+   });
+
+   $("#button").click(function() {
+      $("#loader").show();
+     FirstContract.setInstructor(web3.eth.defaultAccount, $("#age").val(), $("#fName").val(), $("#lName").val(), (err, res) => {
+         if (err) {
+             $("#loader").hide();
+         }
+     });
+ });
+
+</script>
