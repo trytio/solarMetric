@@ -1,0 +1,66 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/node', '/usr/bin/npm', 'show' ]
+2 info using npm@3.5.2
+3 info using node@v8.10.0
+4 silly mapToRegistry name modular-admin-html
+5 silly mapToRegistry using default registry
+6 silly mapToRegistry registry https://registry.npmjs.org/
+7 silly mapToRegistry uri https://registry.npmjs.org/modular-admin-html
+8 verbose request uri https://registry.npmjs.org/modular-admin-html
+9 verbose request no auth needed
+10 info attempt registry request try #1 at 5:00:57 AM
+11 verbose request id e9536005039310c9
+12 http request GET https://registry.npmjs.org/modular-admin-html
+13 http 200 https://registry.npmjs.org/modular-admin-html
+14 verbose headers { date: 'Sun, 30 Sep 2018 05:00:58 GMT',
+14 verbose headers   'content-type': 'application/json; charset=UTF-8',
+14 verbose headers   'transfer-encoding': 'chunked',
+14 verbose headers   connection: 'keep-alive',
+14 verbose headers   'set-cookie':
+14 verbose headers    [ '__cfduid=dcfd8d02cb43f0b3a72c00312031436891538283657; expires=Mon, 30-Sep-19 05:00:57 GMT; path=/; domain=.registry.npmjs.org; HttpOnly' ],
+14 verbose headers   'cf-cache-status': 'MISS',
+14 verbose headers   'cache-control': 'max-age=300',
+14 verbose headers   'cf-ray': '462420fcbc1c213e-EWR',
+14 verbose headers   etag: 'W/"6f910c30b80cba2fff9ebbae63893dd1"',
+14 verbose headers   'expect-ct': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
+14 verbose headers   'last-modified': 'Sun, 27 May 2018 08:22:22 GMT',
+14 verbose headers   vary: 'accept-encoding, accept',
+14 verbose headers   server: 'cloudflare',
+14 verbose headers   'content-encoding': 'gzip' }
+15 silly get cb [ 200,
+15 silly get   { date: 'Sun, 30 Sep 2018 05:00:58 GMT',
+15 silly get     'content-type': 'application/json; charset=UTF-8',
+15 silly get     'transfer-encoding': 'chunked',
+15 silly get     connection: 'keep-alive',
+15 silly get     'set-cookie':
+15 silly get      [ '__cfduid=dcfd8d02cb43f0b3a72c00312031436891538283657; expires=Mon, 30-Sep-19 05:00:57 GMT; path=/; domain=.registry.npmjs.org; HttpOnly' ],
+15 silly get     'cf-cache-status': 'MISS',
+15 silly get     'cache-control': 'max-age=300',
+15 silly get     'cf-ray': '462420fcbc1c213e-EWR',
+15 silly get     etag: 'W/"6f910c30b80cba2fff9ebbae63893dd1"',
+15 silly get     'expect-ct': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
+15 silly get     'last-modified': 'Sun, 27 May 2018 08:22:22 GMT',
+15 silly get     vary: 'accept-encoding, accept',
+15 silly get     server: 'cloudflare',
+15 silly get     'content-encoding': 'gzip' } ]
+16 verbose get saving modular-admin-html to /root/.npm/registry.npmjs.org/modular-admin-html/.cache.json
+17 verbose stack Error: Unpublished by adil.hilmi on 2018-05-04T08:42:07.279Z
+17 verbose stack     at /usr/share/npm/lib/view.js:112:14
+17 verbose stack     at saved (/usr/share/npm/lib/cache/caching-client.js:168:7)
+17 verbose stack     at /usr/share/npm/node_modules/graceful-fs/polyfills.js:210:7
+17 verbose stack     at FSReqWrap.oncomplete (fs.js:135:15)
+18 verbose statusCode 404
+19 verbose pkgid modular-admin-html
+20 verbose cwd /root/solarMetric
+21 error Linux 4.15.0-30-generic
+22 error argv "/usr/bin/node" "/usr/bin/npm" "show"
+23 error node v8.10.0
+24 error npm  v3.5.2
+25 error code E404
+26 error 404 Unpublished by adil.hilmi on 2018-05-04T08:42:07.279Z
+27 error 404
+28 error 404 'modular-admin-html' is not in the npm registry.
+29 error 404 You should bug the author to publish it (or use the name yourself!)
+30 error 404 Note that you can also install from a
+31 error 404 tarball, folder, http url, or git url.
+32 verbose exit [ 1, true ]
