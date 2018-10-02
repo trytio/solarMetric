@@ -10,7 +10,7 @@ var config = {
 	srcDir: srcDir,
 	destDir: destDir,
 	npmDir: npmDir,
-	port: 8080,
+	port: 4000,
 	paths: {}
 };
 
